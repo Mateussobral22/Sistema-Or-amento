@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Orçamento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-card">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-title">
+                    <!-- Logo The Office -->
+                    <div class="logo-container">
+                        <div class="logo-circle"></div>
+                        <div class="logo-text">
+                            <div class="the">the</div>
+                            <div class="office">office</div>
+                            <div class="subtitle">móveis para escritório</div>
+                        </div>
+                    </div>
+                    <div class="title-section">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                        <h1>Sistema de Orçamento</h1>
+                    </div>
+                </div>
+                <button id="downloadBtn" class="btn btn-success">
+                    <svg class="small-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Baixar PDF
+                </button>
+            </div>
+
+            <!-- Informações -->
+            <div class="grid grid-2">
+                <!-- Dados do Cliente -->
+                <div class="info-section client-priority">
+                    <h2>👤 Dados do Cliente</h2>
+                    <div class="client-highlight">
+                        <div class="form-group">
+                            <label for="clientName">Nome Completo *</label>
+                            <input type="text" id="clientName" class="form-control" placeholder="Digite o nome completo do cliente" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail">Email de Contato</label>
+                            <input type="email" id="clientEmail" class="form-control" placeholder="exemplo@empresa.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">Telefone Principal</label>
+                            <input type="tel" id="clientPhone" class="form-control" placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientAddress">Endereço Completo</label>
+                            <input type="text" id="clientAddress" class="form-control" placeholder="Rua, número, bairro, cidade - Estado">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações da Empresa -->
+                <div class="info-section company-priority">
+                    <h2>🏢 Informações da Empresa</h2>
+                    <div class="form-group">
+                        <input type="text" id="companyName" class="form-control" placeholder="Nome da empresa" value="SISTEMA DE ORÇAMENTO">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="companySubtitle" class="form-control" placeholder="Subtítulo/Atividade" value="Proposta Comercial Profissional">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="companyPhone" class="form-control" placeholder="Telefone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="companyCNPJ" class="form-control" placeholder="CNPJ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="companyAddress" class="form-control" placeholder="Endereço completo">
+                    </div>
+                </div>
+
+                <!-- Informações do Orçamento -->
+                <div class="info-section budget-priority">
+                    <h2>📋 Informações do Orçamento</h2>
+                    <div class="form-group">
+                        <input type="text" id="budgetNumber" class="form-control" placeholder="Número do orçamento">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="budgetDate">Data</label>
+                            <input type="date" id="budgetDate" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="budgetValidUntil">Válido até</label>
+                            <input type="date" id="budgetValidUntil" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="budgetDiscount">Desconto (%)</label>
+                            <input type="number" id="budgetDiscount" class="form-control" min="0" max="100" step="0.1" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="budgetTax">Impostos (%)</label>
+                            <input type="number" id="budgetTax" class="form-control" min="0" max="100" step="0.1" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produtos -->
+            <div class="products-section">
+                <div class="section-header">
+                    <h2>Produtos/Serviços</h2>
+                    <button id="addProductBtn" class="btn btn-primary">
+                        <svg class="small-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        Adicionar Item
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th class="text-center">Qtd.</th>
+                                <th class="text-center">Valor Unit.</th>
+                                <th class="text-right">Total</th>
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable">
+                            <tr>
+                                <td colspan="5" class="empty-state">
+                                    Nenhum produto adicionado. Clique em "Adicionar Item" para começar.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Totais -->
+            <div class="totals-section">
+                <div class="totals-container" id="totalsContainer">
+                    <div class="totals-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="totals-row discount" id="discountRow" style="display: none;">
+                        <span id="discountLabel">Desconto (0%):</span>
+                        <span id="discountAmount">- R$ 0,00</span>
+                    </div>
+                    <div class="totals-row" id="subtotalAfterDiscountRow" style="display: none;">
+                        <span>Subtotal com Desconto:</span>
+                        <span id="subtotalAfterDiscount">R$ 0,00</span>
+                    </div>
+                    <div class="totals-row tax" id="taxRow" style="display: none;">
+                        <span id="taxLabel">Impostos (0%):</span>
+                        <span id="taxAmount">R$ 0,00</span>
+                    </div>
+                    <div class="totals-row final">
+                        <span>TOTAL GERAL:</span>
+                        <span class="amount" id="totalAmount">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
