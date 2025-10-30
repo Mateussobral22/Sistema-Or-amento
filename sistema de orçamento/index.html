@@ -3,109 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Orçamento</title>
+    <title>Sistema de Orçamento - The Office</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Botão Flutuante Catálogo -->
+    <div class="catalog-fab" onclick="openCatalog()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+        </svg>
+    </div>
+
     <div class="container">
-        <div class="main-card">
-            <!-- Header -->
-            <div class="header">
-                <div class="header-title">
-                    <!-- Logo The Office -->
-                    <div class="logo-container">
-                        <div class="logo-circle"></div>
-                        <div class="logo-text">
-                            <div class="the">the</div>
-                            <div class="office">office</div>
-                            <div class="subtitle">móveis para escritório</div>
-                        </div>
-                    </div>
-                    <div class="title-section">
-                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                        </svg>
-                        <h1>Sistema de Orçamento</h1>
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <div class="logo-text">
+                        <div class="the">the</div>
+                        <div class="office">office</div>
+                        <div class="subtitle">móveis para escritório</div>
                     </div>
                 </div>
-                <button id="downloadBtn" class="btn btn-success">
-                    <svg class="small-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="header-title">
+                    <h1>Sistema de Orçamento</h1>
+                    <p>Gestão Profissional de Propostas</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-success" onclick="generatePDF()">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
-                    Baixar PDF
+                    Gerar PDF
                 </button>
             </div>
+        </div>
 
+        <div class="main-card">
             <!-- Informações -->
-            <div class="grid grid-2">
-                <!-- Dados do Cliente -->
-                <div class="info-section client-priority">
-                    <h2>👤 Dados do Cliente</h2>
-                    <div class="client-highlight">
-                        <div class="form-group">
-                            <label for="clientName">Nome Completo *</label>
-                            <input type="text" id="clientName" class="form-control" placeholder="Digite o nome completo do cliente" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="clientEmail">Email de Contato</label>
-                            <input type="email" id="clientEmail" class="form-control" placeholder="exemplo@empresa.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="clientPhone">Telefone Principal</label>
-                            <input type="tel" id="clientPhone" class="form-control" placeholder="(00) 00000-0000">
-                        </div>
-                        <div class="form-group">
-                            <label for="clientAddress">Endereço Completo</label>
-                            <input type="text" id="clientAddress" class="form-control" placeholder="Rua, número, bairro, cidade - Estado">
-                        </div>
+            <div class="grid-2">
+                <div class="info-section">
+                    <h2>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        Dados do Cliente
+                    </h2>
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" id="clientName" class="form-control" placeholder="Nome do cliente">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" id="clientEmail" class="form-control" placeholder="email@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" id="clientPhone" class="form-control" placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>Endereço</label>
+                        <input type="text" id="clientAddress" class="form-control" placeholder="Endereço completo">
                     </div>
                 </div>
 
-                <!-- Informações da Empresa -->
-                <div class="info-section company-priority">
-                    <h2>🏢 Informações da Empresa</h2>
+                <div class="info-section">
+                    <h2>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Informações do Orçamento
+                    </h2>
                     <div class="form-group">
-                        <input type="text" id="companyName" class="form-control" placeholder="Nome da empresa" value="SISTEMA DE ORÇAMENTO">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="companySubtitle" class="form-control" placeholder="Subtítulo/Atividade" value="Proposta Comercial Profissional">
+                        <label>Número do Orçamento</label>
+                        <input type="text" id="budgetNumber" class="form-control">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" id="companyPhone" class="form-control" placeholder="Telefone">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="companyCNPJ" class="form-control" placeholder="CNPJ">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="companyAddress" class="form-control" placeholder="Endereço completo">
-                    </div>
-                </div>
-
-                <!-- Informações do Orçamento -->
-                <div class="info-section budget-priority">
-                    <h2>📋 Informações do Orçamento</h2>
-                    <div class="form-group">
-                        <input type="text" id="budgetNumber" class="form-control" placeholder="Número do orçamento">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="budgetDate">Data</label>
+                            <label>Data</label>
                             <input type="date" id="budgetDate" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="budgetValidUntil">Válido até</label>
+                            <label>Válido até</label>
                             <input type="date" id="budgetValidUntil" class="form-control">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="budgetDiscount">Desconto (%)</label>
+                            <label>Desconto (%)</label>
                             <input type="number" id="budgetDiscount" class="form-control" min="0" max="100" step="0.1" value="0">
                         </div>
                         <div class="form-group">
-                            <label for="budgetTax">Impostos (%)</label>
+                            <label>Impostos (%)</label>
                             <input type="number" id="budgetTax" class="form-control" min="0" max="100" step="0.1" value="0">
                         </div>
                     </div>
@@ -115,40 +106,33 @@
             <!-- Produtos -->
             <div class="products-section">
                 <div class="section-header">
-                    <h2>Produtos/Serviços</h2>
-                    <button id="addProductBtn" class="btn btn-primary">
-                        <svg class="small-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <h2>
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                        Itens do Orçamento
+                    </h2>
+                    <button class="btn btn-primary" onclick="addCustomProduct()">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
-                        Adicionar Item
+                        Adicionar Item Manual
                     </button>
                 </div>
-
-                <div class="table-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Descrição</th>
-                                <th class="text-center">Qtd.</th>
-                                <th class="text-center">Valor Unit.</th>
-                                <th class="text-right">Total</th>
-                                <th class="text-center">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="productsTable">
-                            <tr>
-                                <td colspan="5" class="empty-state">
-                                    Nenhum produto adicionado. Clique em "Adicionar Item" para começar.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="products-grid" id="productsGrid">
+                    <div style="text-align: center; padding: 60px 20px; color: #64748b;">
+                        <svg width="80" height="80" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 20px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                        <p style="font-size: 16px;">Nenhum item adicionado</p>
+                        <p style="font-size: 14px; margin-top: 10px;">Clique no botão acima ou abra o catálogo</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Totais -->
             <div class="totals-section">
-                <div class="totals-container" id="totalsContainer">
+                <div class="totals-container">
                     <div class="totals-row">
                         <span>Subtotal:</span>
                         <span id="subtotal">R$ 0,00</span>
@@ -157,17 +141,69 @@
                         <span id="discountLabel">Desconto (0%):</span>
                         <span id="discountAmount">- R$ 0,00</span>
                     </div>
-                    <div class="totals-row" id="subtotalAfterDiscountRow" style="display: none;">
-                        <span>Subtotal com Desconto:</span>
-                        <span id="subtotalAfterDiscount">R$ 0,00</span>
-                    </div>
                     <div class="totals-row tax" id="taxRow" style="display: none;">
                         <span id="taxLabel">Impostos (0%):</span>
                         <span id="taxAmount">R$ 0,00</span>
                     </div>
                     <div class="totals-row final">
-                        <span>TOTAL GERAL:</span>
-                        <span class="amount" id="totalAmount">R$ 0,00</span>
+                        <span>TOTAL GERAL</span>
+                        <span id="totalAmount">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Catálogo -->
+    <div class="modal" id="catalogModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    Catálogo de Produtos
+                </h2>
+                <button class="close-modal" onclick="closeCatalog()">
+                    <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulário Adicionar Produto -->
+                <div class="catalog-form">
+                    <h3>➕ Adicionar Novo Produto ao Catálogo</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome do Produto</label>
+                            <input type="text" id="newProductName" class="form-control" placeholder="Ex: Cadeira Presidente">
+                        </div>
+                        <div class="form-group">
+                            <label>Preço (R$)</label>
+                            <input type="number" id="newProductPrice" class="form-control" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>URL da Imagem</label>
+                        <input type="url" id="newProductImage" class="form-control" placeholder="https://exemplo.com/imagem.jpg">
+                    </div>
+                    <button class="btn btn-primary" onclick="addCatalogProduct()">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        Adicionar ao Catálogo
+                    </button>
+                </div>
+
+                <!-- Grid de Produtos -->
+                <div class="catalog-grid" id="catalogGrid">
+                    <div class="empty-catalog">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                        <p style="font-size: 18px; font-weight: 600;">Nenhum produto no catálogo</p>
+                        <p style="margin-top: 10px;">Adicione produtos usando o formulário acima</p>
                     </div>
                 </div>
             </div>
